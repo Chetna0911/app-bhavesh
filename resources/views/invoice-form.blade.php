@@ -121,7 +121,7 @@
 
     <body>
         <div class="registration-form">
-            <form action="{{ route('generate-pdf') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('create-pdf') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-5">
                     {{-- <img style="width: 100%; height: 150%;" alt="Image" src="<?php echo asset("

@@ -96,7 +96,7 @@ return [
         'value' => 'As per ABB policy, we do not accept any L.D. clause.'
     ],
     'scope' => [
-        'key' => 'Default',
+        'key' => 'Scope',
         'value' => 'Our scope of work is limited to supply of above items only, unless otherwise mentioned as a part of this offer.
             Optional additional manual input'
     ],
