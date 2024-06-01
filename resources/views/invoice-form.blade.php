@@ -29,7 +29,7 @@
 
             .registration-form form {
                 background-color: #fff;
-                max-width: 600px;
+                max-width: 900px;
                 margin: auto;
                 padding: 50px 70px;
                 border-top-left-radius: 30px;
@@ -123,64 +123,87 @@
         <div class="registration-form">
             <form action="{{ route('generate-pdf') }}" method="post" enctype="multipart/form-data">
                 @csrf
-                <div>
-                    <img style="width: 100%; height: 150%;" alt="Image" src="<?php echo asset(" /images/logo.png")?>">
-                    {{-- <img src="{{public_path('\images\logo.png')}}" alt="Image" width="300" height="250" /> --}}
+                <div class="mb-5">
+                    {{-- <img style="width: 100%; height: 150%;" alt="Image" src="<?php echo asset("
+                        /images/logo.png")?>"> --}}
+                    <img src="{{asset('images/logo.png')}}" alt="Image" style="width: 100%; height: 150%;" />
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="ref">Ref No</label>
-                        <input type="text" class="form-control" id="ref">
+                        <input type="text" name="refno" class="form-control" id="ref">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="annexure">Annexure No</label>
-                        <input type="text" class="form-control" id="annexure">
+                        <input type="text" name="annexure" class="form-control" id="annexure">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="refenq">Ref Enquiry</label>
-                        <input type="text" class="form-control" id="refenq">
+                        <input type="text" class="form-control" name="refenq" id="refenq">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="kindatt">Kind Attn</label>
-                        <input type="text" class="form-control" id="kindatt">
+                        <input type="text" class="form-control" name="kindatt" id="kindatt">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="subject">Subject</label>
-                    <input type="text" class="form-control" id="subject">
+                    <input type="text" class="form-control" name="subject" id="subject">
                 </div>
                 <div class="form-group">
                     <label for="inputAddress">Address</label>
-                    <input type="text" class="form-control" id="inputAddress">
+                    <input type="text" class="form-control" name="address1" id="inputAddress">
                 </div>
                 <div class="form-group">
                     <label for="inputAddress2">Address 2</label>
-                    <input type="text" class="form-control" id="inputAddress2">
+                    <input type="text" class="form-control" name="address2" id="inputAddress2">
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputCity">City</label>
-                        <input type="text" class="form-control" id="inputCity">
+                        <input type="text" class="form-control" name="city" id="inputCity">
                     </div>
 
                     <div class="form-group col-md-6 ">
                         <label for="inputZip">Zip</label>
-                        <input type="text" class="form-control" id="inputZip">
+                        <input type="text" class="form-control" name="pincode" id="inputZip">
                     </div>
                 </div>
                 <div>
                     <h3>Invoice Details</h3>
-                    Add Items
                     <div>
-                        <p>Terms and Conditions of Supply</p>
-                        {{-- @php
-                        dd($termsNCondition['taxes']);
-                        @endphp --}}
+                        <div class="d-flex">
+                            <p class="mr-auto p-2" style="font-weight: bold;">Add Invoice Items</p>
+                            <div class="p-2 mb-3">
+                                <button class="btn btn-primary px-3 mr-2" name="addItem">+</button>
+                                <button class="btn btn-danger px-3" name="removeItem">-</button>
+
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-7">
+                                <input type="text" name="item_desc" class="form-control" placeholder="Description">
+                            </div>
+                            <div class="col">
+                                <input type="text" name="qty" class="form-control" placeholder="Quantity">
+                            </div>
+                            <div class="col">
+                                <input type="text" name="item_price" class="form-control" placeholder="Unit Price">
+                            </div>
+                            <div class="col">
+                                <input type="text" name="item_total_price" class="form-control"
+                                    placeholder="Total Price">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <br>
+                        <p style="font-weight: bold;">Terms and Conditions of Supply</p>
                         <div>
                             <label class="my-1 mr-2">Taxes</label>
-                            <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                            <select class="custom-select my-1 mr-sm-2" name="taxes" id="inlineFormCustomSelectPref">
                                 <option selected>Choose Taxes...</option>
                                 @foreach ($termsNCondition['taxes'] as $condition)
                                 <option value="{{ $condition['value'] }}">{{ $condition['key'] }}</option>
@@ -190,7 +213,8 @@
                         </div>
                         <div>
                             <label class="my-1 mr-2">Price Basis</label>
-                            <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                            <select class="custom-select my-1 mr-sm-2" name="priceBasic"
+                                id="inlineFormCustomSelectPref">
                                 <option selected>Choose Price Basis...</option>
                                 @foreach ($termsNCondition['priceBasis'] as $condition)
                                 <option value="{{ $condition['value'] }}">{{ $condition['key'] }}</option>
@@ -200,7 +224,8 @@
                         </div>
                         <div>
                             <label class="my-1 mr-2">Payment Terms :</label>
-                            <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                            <select class="custom-select my-1 mr-sm-2" name="paymentTerms"
+                                id="inlineFormCustomSelectPref">
                                 <option selected>Choose Payment Terms...</option>
                                 @foreach ($termsNCondition['paymentTerms'] as $condition)
                                 <option value="{{ $condition['value'] }}">{{ $condition['key'] }}</option>
@@ -210,7 +235,7 @@
                         </div>
                         <div>
                             <label class="my-1 mr-2">Warranty</label>
-                            <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                            <select class="custom-select my-1 mr-sm-2" name="warranty" id="inlineFormCustomSelectPref">
                                 <option selected>Choose Warranty...</option>
                                 @foreach ($termsNCondition['warranty'] as $condition)
                                 <option value="{{ $condition['value'] }}">{{ $condition['key'] }}</option>
@@ -220,7 +245,7 @@
                         </div>
                         <div>
                             <label class="my-1 mr-2">Delivery</label>
-                            <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                            <select class="custom-select my-1 mr-sm-2" name="delivery" id="inlineFormCustomSelectPref">
                                 <option selected>Choose Delivery Option...</option>
                                 @foreach ($termsNCondition['delivery'] as $condition)
                                 <option value="{{ $condition['value'] }}">{{ $condition['key'] }}</option>
@@ -228,7 +253,6 @@
 
                             </select>
                         </div>
-
                     </div>
                 </div>
                 <div class="form-group">
