@@ -17,8 +17,10 @@ use App\Http\Controllers\PdfController;
 Route::get('/form', function () {
     return view('form');
 });
+Route::get('/invoice-form',[PdfController::class, 'showForm']);
 
 Route::post('/generate-pdf', [PdfController::class, 'generatePdf'])->name('generate-pdf');
+Route::post('/invoice-form', [PdfController::class, 'createInvoicePdf'])->name('create-pdf');
 
 
 Route::get('/', function () {
