@@ -39,4 +39,15 @@ class PdfController extends Controller
         // Provide a link for direct download
         echo "<p><a href='{$pdfUrl}' download='{$filename}'>Download PDF</a></p>";
     }
+
+    public function showForm (Request $request)
+    {
+        $termsNCondition = config('terms-and-condition');
+        return view('invoice-form',['termsNCondition' => $termsNCondition] );
+    }
+
+    public function createInvoicePdf(Request $request)
+    {
+        dd($request->all());
+    }
 }
