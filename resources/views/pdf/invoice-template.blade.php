@@ -37,8 +37,18 @@
                 z-index: -1;
             }
 
+            header img {
+                width: 100%;
+                height: auto;
+            }
+
+            footer img {
+                width: 100%;
+                height: auto;
+            }
+
             .container {
-                width: 80%;
+                width: 100%;
                 margin: 0 auto;
             }
 
@@ -105,19 +115,16 @@
         </footer>
 
         <div class="container">
-            <br>
             <h1>Quotation</h1>
             <div class="header">
                 <table>
                     <tbody>
                         <tr>
-                            <td>
-                                <p>REF: {{ $data['refno'] }}</p>
+                            <td style="text-align: left; padding: 0px !important;">
+                                REF: {{ $data['refno'] }}
                             </td>
-                            <td>
-                                <p>Date:
-                                    <?php echo now()->format('d/m/Y');?>
-                                </p>
+                            <td style="text-align: right;">
+                                Date: {{ now()->format('d/m/Y') }}
                             </td>
                         </tr>
                     </tbody>
@@ -170,7 +177,8 @@
                             <td colspan="5" style="text-align: center;">As Per Annexure</td>
                         </tr>
                         <tr>
-                            <td colspan="5" style="text-align: center;">This Offer Contains 1 Annexure</td>
+                            <td colspan="5" style="text-align: center;">This Offer Contains {{ $data['annexure'] }}
+                                Annexure </td>
                         </tr>
                     </tbody>
                 </table>
@@ -236,10 +244,11 @@
                 </tbody>
             </table>
 
-            <p>REF:Q22-ABB-KR PPL-RELAY-05-24</p>
 
-            <div class="page-break">
-                <h2 style="text-align: center;">ANNEXURE-{{ $data['annexure'] }}</h2>
+
+            <div class="page-break-before-div">
+                <p>REF:Q22-ABB-KR PPL-RELAY-05-24</p>
+                <h2 style="text-align: center;">ANNEXURE - {{ $data['annexure'] }}</h2>
                 <table>
                     <thead>
                         <tr>
@@ -251,16 +260,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {{-- @foreach ($data['items'] as $key => $item)
-
-                        @endforeach
+                        @foreach ($data['items'] as $key => $item)
                         <tr>
                             <td>{{ $key + 1 }}</td>
-                            <td>{{ $item->item_desc }}</td>
-                            <td>{{ $item->qty }}</td>
-                            <td>{{ $item->item_price }}</td>
-                            <td>{{ $item->item_total_price }}</td>
-                        </tr> --}}
+                            <td>{{ $item['desc'] }}</td>
+                            <td>{{ $item['qty'] }}</td>
+                            <td>{{ $item['item_price'] }}</td>
+                            <td>{{ $item['item_total_price'] }}</td>
+                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
                 <br>
