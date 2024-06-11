@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -104,19 +103,18 @@
         </style>
     </head>
 
-    <body>
+    <body class="lh-sm" style="font-size: 12px ">
 
         <header>
-            <img src="{{ asset('images/logo.png') }}" style="background-repeat: no-repeat; " alt="">
+            <img src="{{ public_path('images/logo.png') }}"  alt="Logo">
         </header>
-
         <footer>
-            <img src="{{ asset('images/footer-abb.png') }}" style="background-repeat: no-repeat; " alt="">
+            <img src="{{ public_path('images/footer-abb.png') }}" alt="Footer Image">
         </footer>
-
-        <div class="container">
-            <h1>Quotation</h1>
-            <div class="header">
+        
+        <div class="container" style="margin-top: -4%">
+            <h3 style="text-align: center;">Quotation</h3>
+            <div class="header" style="margin-top: -4%">
                 <table>
                     <tbody>
                         <tr>
@@ -141,9 +139,9 @@
             <p>Kind Attn: {{ $data['kindatt'] }}</p>
 
             <p>Ref: {{ $data['refenq'] }}</p>
-            <p>Subject: {{ $data['subject'] }}</p>
+            <p style="margin-top:-1%;">Subject: {{ $data['subject'] }}</p>
 
-            <div class="page-break-after-div">
+            <div>
                 <p>Dear Sir,<br>
                     We Thank you for your recent inquiry and expressing interest in ABB products & services. At GEPL, we
                     are
@@ -151,18 +149,18 @@
                     per
                     your enquiry and details shared.</p>
 
-                <p>We are presenting you with the below offer as per ABB's instructions and guidelines.</p>
+                <p style="margin-top:-1.5%;">We are presenting you with the below offer as per ABB's instructions and guidelines.</p>
 
-                <p>Our commitment to quality & solution centric mindset sets us apart, and we are confident that our
+                <p style="margin-top:-1.5%;">Our commitment to quality & solution centric mindset sets us apart, and we are confident that our
                     tailored solution will not only meet but exceed your expectations.</p>
 
-                <p>Our team is ready to address any questions and provide additional details to ensure you make an
+                <p style="margin-top:-1.5%;">Our team is ready to address any questions and provide additional details to ensure you make an
                     informed
                     decision. Please feel free to reach out to discuss any specific aspects or to arrange a meeting.</p>
             </div>
 
-            <div class="">
-                <table>
+            <div class="" style="margin-top: -3%">
+                <table style="font-size:80%">
                     <thead>
                         <tr>
                             <th>S.No.</th>
@@ -184,7 +182,7 @@
                 </table>
             </div>
             <br>
-            <table class="terms-table">
+            <table class="terms-table" style="font-size:12px; margin-top: -1%">
                 <thead>
                     <tr>
                         <th colspan="2">Terms and Conditions</th>
@@ -192,53 +190,53 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>1</td>
+                        <td style="text-align: center;">1</td>
                         <td>
-                            <b>Taxes & Duties:</b>{{ $data['taxes'] }}
+                            <b>Taxes & Duties : </b>{{ $data['taxes'] }}
                         </td>
                     </tr>
                     <tr>
-                        <td>2</td>
+                        <td style="text-align: center;">2</td>
                         <td>
-                            <b>Freight, P&F & Transit Insurance:</b> Inclusive in above offer.
+                            <b>Freight, P&F & Transit Insurance : </b> Inclusive in above offer.
                         </td>
                     </tr>
                     <tr>
-                        <td>3</td>
+                        <td style="text-align: center;">3</td>
                         <td>
-                            <b>Payment Terms:</b>{{ $data['paymentTerms'] }}
+                            <b>Payment Terms : </b>{{ $data['paymentTerms'] }}
                         </td>
                     </tr>
                     <tr>
-                        <td>4</td>
+                        <td style="text-align: center;">4</td>
                         <td>
-                            <b>Validity:</b>Prices are valid for a period of 25 days from the date of offer
+                            <b>Validity : </b>Prices are valid for a period of 25 days from the date of offer
                             submission.
                         </td>
                     </tr>
                     <tr>
-                        <td>5</td>
+                        <td style="text-align: center;">5</td>
                         <td>
-                            <b>Delivery:</b>14-16 weeks from the date of receipt of your PO/advance payment whichever
+                            <b>Delivery : </b>14-16 weeks from the date of receipt of your PO/advance payment whichever
                             is later.
                         </td>
                     </tr>
                     <tr>
-                        <td>6</td>
+                        <td style="text-align: center;">6</td>
                         <td>
-                            <b>{{ $details['scope']['key'] }}:</b> {{ $details['scope']['value'] }}
+                            <b>{{ $details['scope']['key'] }} : </b> {{ $details['scope']['value'] }}
                         </td>
                     </tr>
                     <tr>
-                        <td>7</td>
+                        <td style="text-align: center;">7</td>
                         <td>
-                            <b>Warrenty:</b>{{ $data['warranty'] }}
+                            <b>Warrenty : </b>{{ $data['warranty'] }}
                         </td>
                     </tr>
                     <tr>
-                        <td>8</td>
+                        <td style="text-align: center;">8</td>
                         <td>
-                            <b>Liquidation Charges:</b>As per ABB policy we do not accept any L.D. clause.</p>
+                            <b>Liquidation Charges : </b>As per ABB policy we do not accept any L.D. clause.</p>
                         </td>
                     </tr>
                 </tbody>
@@ -247,8 +245,21 @@
 
 
             <div class="page-break-before-div">
-                <p>REF:Q22-ABB-KR PPL-RELAY-05-24</p>
-                <h2 style="text-align: center;">ANNEXURE - {{ $data['annexure'] }}</h2>
+                <div class="header" style="margin-top: -4%">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td style="text-align: left; padding: 0px !important;">
+                                    REF: {{ $data['refno'] }}
+                                </td>
+                                <td style="text-align: right;">
+                                    Date: {{ now()->format('d/m/Y') }}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h2 style="text-align: center;">ANNEXURE - 1</h2>
                 <table>
                     <thead>
                         <tr>
@@ -262,11 +273,11 @@
                     <tbody>
                         @foreach ($data['items'] as $key => $item)
                         <tr>
-                            <td>{{ $key + 1 }}</td>
+                            <td  style="text-align: center;">{{ $key + 1 }}</td>
                             <td>{{ $item['desc'] }}</td>
                             <td>{{ $item['qty'] }}</td>
                             <td>{{ $item['item_price'] }}</td>
-                            <td>{{ $item['item_total_price'] }}</td>
+                            <td>{{ $item['qty'] * $item['item_price'] }}</td>
                         </tr>
                         @endforeach
                     </tbody>

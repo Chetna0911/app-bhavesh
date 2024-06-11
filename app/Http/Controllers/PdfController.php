@@ -10,6 +10,7 @@ class PdfController extends Controller
 {
     public function generatePdf(Request $request)
     {
+        set_time_limit(3600);
         $data = [
             'ref_no' => $request->input('ref_no'),
             'name' => $request->input('name'),
@@ -43,12 +44,14 @@ class PdfController extends Controller
 
     public function showForm(Request $request)
     {
+        set_time_limit(3600);
         $termsNCondition = config('terms-and-condition');
         return view('invoice-form', ['termsNCondition' => $termsNCondition]);
     }
 
     public function createInvoicePdf(Request $request)
     {
+        set_time_limit(3600);
         $details = config('terms-and-condition');
         $data = $request->all();
         // return view('pdf.invoice-template', ['data' => $data, 'details' => $details]);

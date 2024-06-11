@@ -172,10 +172,10 @@
                     </div>
                 </div>
                 <div>
-                    <h3>Invoice Details</h3>
+                    <h3>Offering Details</h3>
                     <div>
                         <div class="d-flex">
-                            <p class="mr-auto p-2" style="font-weight: bold;">Add Invoice Items</p>
+                            <p class="mr-auto p-2" style="font-weight: bold;">Add Items</p>
                             {{-- <div class="p-2 mb-3">
                                 <button class="btn btn-primary px-3 mr-2" name="addItem">+</button>
                                 <button class="btn btn-danger px-3" name="removeItem">-</button>
@@ -184,26 +184,20 @@
                         </div>
                         <div id="input-fields">
                             <div class="form-group row">
-                                <div class="col-md-5 mb-2">
-                                    <input type="text" name="items[0][desc]" class="form-control"
-                                        placeholder="Item Description">
+                                <div class="col-md-4 mb-2">
+                                    <input type="text" name="items[0][desc]" class="form-control" placeholder="Item Description">
                                 </div>
-                                <div class="col-md-5 mb-2">
-                                    <input type="text" name="items[0][qty]" class="form-control quantity"
-                                        placeholder="Item Quantity">
+                                <div class="col-md-3 mb-2">
+                                    <input type="text" name="items[0][qty]" class="form-control quantity" placeholder="Item Quantity">
                                 </div>
-                                <div class="col-md-5 mb-2">
-                                    <input type="text" name="items[0][item_price]" class="form-control price"
-                                        placeholder="Item Price">
-                                </div>
-                                <div class="col-md-5 mb-2">
-                                    <input type="text" name="items[0][item_total_price]" class="form-control"
-                                        placeholder="Item Total Price">
+                                <div class="col-md-3 mb-2">
+                                    <input type="text" name="items[0][item_price]" class="form-control price" placeholder="Item Price">
                                 </div>
                                 <div class="col-md-2">
                                     <button type="button" class="btn btn-success" id="add-button">+</button>
                                 </div>
                             </div>
+                            
                         </div>
                     </div>
                     <div>
@@ -272,7 +266,7 @@
         <script type="text/javascript"
             src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js">
         </script>
-        <script src="assets/js/script.js"></script>
+        {{-- <script src="assets/js/script.js"></script> --}}
         <script type="text/javascript">
             $(document).ready(function() {
             let counter = 1;
@@ -280,18 +274,14 @@
             $('#add-button').click(function() {
                 let newField = `
                     <div class="form-group row">
-                        <div class="col-md-5 mb-2">
+                        <div class="col-md-4 mb-2">
                             <input type="text" name="items[${counter}][desc]" class="form-control" placeholder="Item Description">
                         </div>
-                        <div class="col-md-5 mb-2">
+                        <div class="col-md-3 mb-2">
                             <input type="text" name="items[${counter}][qty]" class="form-control quantity" placeholder="Item Quantity">
                         </div>
-                        <div class="col-md-5 mb-2">
+                        <div class="col-md-3 mb-2">
                             <input type="text" name="items[${counter}][item_price]" class="form-control price" placeholder="Item Price">
-                        </div>
-                        <div class="col-md-5 mb-2">
-                            <input type="text" name="items[${counter}][item_total_price]" class="form-control"
-                                placeholder="Item Total Price">
                         </div>
                         <div class="col-md-2">
                             <button type="button" class="btn btn-danger remove-button">-</button>
