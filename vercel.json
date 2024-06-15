@@ -12,6 +12,7 @@
       "APP_ENV": "production",
       "APP_DEBUG": "true",
       "APP_URL": "https://www.gepl.ind.in",
+      "APP_KEY": "base64:4GEQ9PdSceeR6/Cf6SArCnmOlTTsURGK+urlv2is/ng=",
 
       "APP_CONFIG_CACHE": "/tmp/config.php",
       "APP_EVENTS_CACHE": "/tmp/events.php",
